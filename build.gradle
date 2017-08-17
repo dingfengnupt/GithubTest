@@ -4,7 +4,7 @@ buildscript {
     repositories {
         jcenter()
         maven {
-            url "https://github.com/vdolrm/lrmutils_aar/raw/master"
+            url "file://D:/mygit_lrmutils_organization_aar"
         }
     }
     dependencies {
@@ -18,6 +18,9 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        maven {
+            url "file://D:/mygit_lrmutils_organization_aar"
+        }
     }
 }
 

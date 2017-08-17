@@ -1,17 +1,17 @@
-// 1.maven-插件
+//申请maven插件
 apply plugin: 'maven'
 
-// 2.maven-信息
-ext {// ext is a gradle closure allowing the declaration of global properties
-    PUBLISH_GROUP_ID = 'vdolrm.lrmlibrary'
-    PUBLISH_ARTIFACT_ID = 'base'
-    PUBLISH_VERSION = android.defaultConfig.versionName
+// ext is a gradle closure allowing the declaration of global properties
+ext {
+    PUBLISH_GROUP_ID = "${PUBLISH_GROUP_ID}"
+    PUBLISH_ARTIFACT_ID = "${PUBLISH_ARTIFACT_ID}"
+    PUBLISH_VERSION = "${APP_VERSION_NAME}"
 }
 
-// 3.maven-路径
+//上传文档配置
 uploadArchives {
     repositories.mavenDeployer {
-        def deployPath = file(getProperty('aar.deployPath'))
+        def deployPath = file(getProperty('aar.path'))
         repository(url: "file://${deployPath.absolutePath}")
         pom.project {
             groupId project.PUBLISH_GROUP_ID
